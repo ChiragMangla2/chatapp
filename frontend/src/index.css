@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: aliceblue;
+}
+
+/* login/register */
+.main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    background-color: rgba(36, 40, 40, 0.422);
+    width: 25%;
+    height: 60%;
+    padding: 1rem;
+    border-radius: 20px;
+    position: relative;
+}
+
+.sub>h1 {
+    position: absolute;
+    top: 10%;
+    left: 35%;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 0 10px;
+    gap: 10px;
+}
+
+.field>label {
+    font-size: 20px;
+}
+
+.field>input {
+    width: 100%;
+    height: 4vh;
+    padding: 4px 8px;
+    font-size: large;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #000;
+    border-radius: 10px;
+    background-color: rgb(32, 30, 30);
+    color: aliceblue;
+}
+
+.sub>button {
+    position: absolute;
+    bottom: 10%;
+    background-color: rgb(64, 151, 175);
+    padding: 1vh 10vh;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: larger;
+}
+
+.sub>button:hover {
+    background-color: rgb(128, 177, 191);
+}
+
+/* App */
+.App {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+/* sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: rebeccapurple;
+    overflow-y: scroll;
+}
+
+.hide-scrollbar {
+    scrollbar-width: none;
+    /* For Firefox */
+    -ms-overflow-style: none;
+    /* For IE and Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* For Chrome, Safari, and Edge */
+}
+
+.sidebar h1 {
+    padding: 1rem 2rem;
+}
+
+.sidebar .userField {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+}
+
+.bg1 {
+    background-color: rgb(138, 158, 220);
+}
+
+.bg2 {
+    background-color: rgb(106, 129, 197);
+}
+
+.bg3 {
+    background-color: rgb(255, 126, 126);
+}
+
+.bg4 {
+    background-color: violet;
+}
+
+.sidebar .userField .circle {
+    /* border: 1px solid white; */
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.sidebar .userField .name {
+    font-size: 1.4rem;
+}
+
+/* chat area */
+.chatarea {
+    width: 100%;
+}
+
+.chatarea .name{
+    background-color: rgb(120, 61, 179);
+    padding: 1rem 2rem;
+    font-size: 2rem;
+}
+
+.chatarea .messages{
+    width: 100%;
+    height: 80%;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll;
+    font-size: larger;
+}
+
+.chatarea .messages .msg .left{
+    display: flex;
+    justify-content: start;
+}
+
+.right{
+    display: flex;
+    justify-content: end;
+}
+
+.chatarea .input{
+    background-color: rgb(120, 61, 179);
+    padding: 1rem 2rem;
+    display: flex;
+    gap: 10px;
+}
+
+.chatarea .input input{
+    width: 100%;
+    height: 2rem;
+    font-size: 1.2rem;
+    padding: 20px;
+    outline: none;
+}
+
+.chatarea .input button{
+    padding: 5px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
