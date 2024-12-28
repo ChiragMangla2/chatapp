@@ -29,10 +29,15 @@ app.use('/api/v1/auth', authRoute)
 // user route
 app.use('/api/v1/user', userRoute)
 
-let count = 0;
+const users = {};
 
 io.on('connection', (socket) => {
-    console.log(++count, ' user connected');
+    console.log('user connected', socket.id);
+
+    socket.on('register', (id)=>{
+        users[id] = socket.id;
+        console.log(users);
+    })
 
     socket.on('message', (msg) => {
         console.log('message: ' + msg);
