@@ -3,8 +3,10 @@ import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 import authRoute from './routers/authRouter.js'
 import userRoute from './routers/userRouter.js'
+import msgRoute from './routers/msgRouter.js'
 import connectDB from './db.js';
 import cors from 'cors'
+import { saveMsg } from './controllers/msgController.js';
 
 const app = express();
 connectDB();
@@ -29,6 +31,9 @@ app.use('/api/v1/auth', authRoute)
 // user route
 app.use('/api/v1/user', userRoute)
 
+// msg route
+app.use('/api/v1/msg', msgRoute)
+
 const users = {};
 
 io.on('connection', (socket) => {
@@ -36,12 +41,12 @@ io.on('connection', (socket) => {
 
     socket.on('register', (id)=>{
         users[id] = socket.id;
-        console.log(users);
     })
 
-    socket.on('message', (msg) => {
-        console.log('message: ' + msg);
-        socket.broadcast.emit('message', msg);
+    socket.on('message', ({msg,senderId,receiverId}) => {
+        saveMsg({msg,senderId,receiverId})
+        socket.to(users[receiverId]).emit('message', ({msg, senderId}));
+        console.log("msg send", users)
     });
 
     socket.on('disconnect', () => {

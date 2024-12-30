@@ -1,0 +1,1 @@
+in frontend their is issue of contextapi to get current selected user from sidebar. So to resolve this issue I use localstorage to store selected user {_id,username} and access in chatarea.jsx component when new message come check it selected user if true the add in message state which store all messages.

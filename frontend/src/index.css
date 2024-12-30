@@ -107,8 +107,19 @@ body {
     /* For Chrome, Safari, and Edge */
 }
 
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .sidebar h1 {
     padding: 1rem 2rem;
+}
+
+.sidebar .logo .logout{
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 .sidebar .userField {
